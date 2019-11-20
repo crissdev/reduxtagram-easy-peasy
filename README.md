@@ -4,6 +4,10 @@ A simple React + [easy-peasy](https://easy-peasy.now.sh/) (Redux) implementation
 
 <small>This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).</small>
 
+## Demo
+
+https://sleepy-bohr-d0c597.netlify.com/
+
 ## Available Scripts
 
 In the project directory, you can run:

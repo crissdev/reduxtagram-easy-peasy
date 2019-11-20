@@ -1,0 +1,53 @@
+{
+  "extends": [
+    // Recommended rules from ESLint team
+    "eslint:recommended",
+
+    // React specific ESLint rules
+    "plugin:react/recommended",
+
+    // Import plugin
+    "plugin:import/warnings",
+    "plugin:import/errors",
+    "plugin:import/typescript",
+
+    // Adust some ESLint rules (incompatible with Typescript)
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+
+    // Turn off rules which might conflict with Prettier
+    "prettier",
+    "prettier/react",
+    "prettier/@typescript-eslint",
+
+    // Required by eslint-plugin-prettier
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "ecmaFeatures": { "jsx": true },
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "prettier/prettier": ["error", { "singleQuote": true }],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "off"
+  },
+  "env": {
+    "browser": true,
+    "jasmine": true,
+    "jest": true
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  }
+}

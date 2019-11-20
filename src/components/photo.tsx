@@ -1,0 +1,46 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
+import { useStoreActions } from '../hooks';
+import { Post, Comment } from '../model';
+
+interface Props {
+  post: Post;
+  comments: Comment[]; // comments related to this post
+}
+
+export default function Photo({ post, comments }: Props) {
+  const likePost = useStoreActions(actions => actions.postsModel.likePost);
+
+  return (
+    <figure className="grid-figure">
+      <div className="grid-photo-wrap">
+        <Link to={`/view/${post.id}`}>
+          <img className="grid-photo" src={post.src} alt={post.caption} />
+        </Link>
+
+        <CSSTransition timeout={{ enter: 500, exit: 500 }}>
+          <span key={post.likes} className="likes-heart">
+            {post.likes}
+          </span>
+        </CSSTransition>
+      </div>
+
+      <figcaption>
+        <p>{post.caption}</p>
+
+        <div className="control-buttons">
+          <button onClick={() => likePost(post.id)} className="likes">
+            &hearts; {post.likes}
+          </button>
+
+          <Link to={`/view/${post.id}`} className="button">
+            <span className="comment-count">
+              <span className="speech-bubble"></span> {comments.length}
+            </span>
+          </Link>
+        </div>
+      </figcaption>
+    </figure>
+  );
+}

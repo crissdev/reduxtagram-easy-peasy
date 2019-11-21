@@ -6,7 +6,7 @@ A simple React + [easy-peasy](https://easy-peasy.now.sh/) (Redux) implementation
 
 ## Demo
 
-https://sleepy-bohr-d0c597.netlify.com/
+https://reduxtragram-easy-peasy.netlify.com/
 
 ## Available Scripts
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { useStoreActions } from '../hooks';
@@ -10,6 +10,7 @@ interface Props {
 }
 
 export default function Photo({ post, comments }: Props) {
+  const [appear, setAppear] = useState(false);
   const likePost = useStoreActions(actions => actions.postsModel.likePost);
 
   return (
@@ -19,10 +20,13 @@ export default function Photo({ post, comments }: Props) {
           <img className="grid-photo" src={post.src} alt={post.caption} />
         </Link>
 
-        <CSSTransition timeout={{ enter: 500, exit: 500 }}>
-          <span key={post.likes} className="likes-heart">
-            {post.likes}
-          </span>
+        <CSSTransition
+          in={appear}
+          classNames="like"
+          timeout={{ enter: 500, exit: 500 }}
+          onEntered={() => setAppear(false)}
+        >
+          <span className="likes-heart">{post.likes}</span>
         </CSSTransition>
       </div>
 
@@ -30,7 +34,13 @@ export default function Photo({ post, comments }: Props) {
         <p>{post.caption}</p>
 
         <div className="control-buttons">
-          <button onClick={() => likePost(post.id)} className="likes">
+          <button
+            onClick={() => {
+              likePost(post.id);
+              setAppear(true);
+            }}
+            className="likes"
+          >
             &hearts; {post.likes}
           </button>
 

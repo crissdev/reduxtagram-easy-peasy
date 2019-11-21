@@ -20,7 +20,6 @@ export default function Single() {
           ))}
           <AddCommentForm postId={postId} />
         </div>
-        )
       </div>
     );
   } else {

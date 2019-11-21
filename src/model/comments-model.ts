@@ -1,4 +1,4 @@
-import { Action, action, Computed, computed } from 'easy-peasy';
+import { Action, action, Computed, computed, memo } from 'easy-peasy';
 import { v4 } from 'uuid';
 import comments from '../data/comments';
 
@@ -33,9 +33,7 @@ export interface CommentsModel {
 export const commentsModel: CommentsModel = {
   comments,
 
-  byPostId: computed(state => (postId: string): Comment[] => {
-    return state.comments[postId] || [];
-  }),
+  byPostId: computed(state => memo((postId: string) => state.comments[postId] || [], 5)),
 
   addComment: action((state, payload) => {
     const { postId, text, user } = payload;

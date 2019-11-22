@@ -1,5 +1,4 @@
 import { Action, action } from 'easy-peasy';
-import posts from '../data/posts';
 
 export interface Post {
   id: string;
@@ -15,7 +14,7 @@ export interface PostsModel {
 }
 
 export const postsModel: PostsModel = {
-  posts,
+  posts: [],
 
   likePost: action((state, postId) => {
     const post = state.posts.find(item => item.id === postId);

@@ -1,6 +1,5 @@
 import { Action, action, Computed, computed, memo } from 'easy-peasy';
 import { v4 } from 'uuid';
-import comments from '../data/comments';
 
 export interface Comment {
   id: string;
@@ -31,7 +30,7 @@ export interface CommentsModel {
 }
 
 export const commentsModel: CommentsModel = {
-  comments,
+  comments: {},
 
   byPostId: computed(state => memo((postId: string) => state.comments[postId] || [], 5)),
 

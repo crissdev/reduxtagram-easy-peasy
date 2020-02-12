@@ -5,7 +5,7 @@ interface Props {
   postId: string;
 }
 
-export function AddCommentForm({ postId }: Props) {
+export default function AddCommentForm({ postId }: Props) {
   const addComment = useStoreActions(actions => actions.commentsModel.addComment);
   const [author, setAuthor] = useState('');
   const [comment, setComment] = useState('');

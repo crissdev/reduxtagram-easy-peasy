@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router';
-import { AddCommentForm } from '../components/add-comment-form';
+import AddCommentForm from '../components/add-comment-form';
 import Photo from '../components/photo';
 import PostComment from '../components/post-comment';
 import { useStoreState } from '../hooks';

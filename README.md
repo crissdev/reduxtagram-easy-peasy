@@ -1,5 +1,7 @@
 # Reduxtagram
 
+[![Build Status](https://travis-ci.org/crissdev/reduxtagram-easy-peasy.svg?branch=master)](https://travis-ci.org/crissdev/reduxtagram-easy-peasy)
+
 A simple React + [easy-peasy](https://easy-peasy.now.sh/) (Redux) implementation inspired by [Learn Redux course](https://learnredux.com/).
 
 <small>This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).</small>

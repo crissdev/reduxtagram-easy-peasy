@@ -1,3 +1,6 @@
+# This project has been rewritten and moved to https://github.com/ctrlplusb/easy-peasy/tree/master/examples/reduxtagram
+
+
 # Reduxtagram
 
 [![Build Status](https://travis-ci.org/crissdev/reduxtagram-easy-peasy.svg?branch=master)](https://travis-ci.org/crissdev/reduxtagram-easy-peasy)
